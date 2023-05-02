@@ -1,0 +1,4 @@
+1114390	male	alex	0.96
+58730	male	oleg	1.0
+37719	male	vlad	0.98
+124325	female	lena	0.99
