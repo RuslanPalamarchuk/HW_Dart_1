@@ -42,6 +42,7 @@ void main(List<String> arguments) async {
     print(
         'count: ${row['count']}, gender: ${row['gender']}, name: ${row['name']}, probability: ${row['probability']}');
   }
+  print('-------------------------------------------------------------');
 
   final file = File('Names.txt');
   final output = file.openWrite();
@@ -50,6 +51,18 @@ void main(List<String> arguments) async {
         '${row['count']}\t${row['gender']}\t${row['name']}\t${row['probability']}';
     output.write('$line\r\n');
   }
+
+  final ResultSet resultSelect =
+      //db.select("SELECT * FROM Names WHERE gender = 'male'");
+      db.select('SELECT * FROM Names WHERE probability < 0.99');
+  //db.select('SELECT * FROM Names');
+  print('SELECT * FROM Names WHERE probability < 0.99');
+
+  for (final Row row in resultSelect) {
+    print(
+        'count: ${row['count']}, gender: ${row['gender']}, name: ${row['name']}, probability: ${row['probability']}');
+  }
+
   await output.close();
 
   db.dispose();
