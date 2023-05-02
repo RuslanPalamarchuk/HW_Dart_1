@@ -54,9 +54,10 @@ void main(List<String> arguments) async {
 
   final ResultSet resultSelect =
       //db.select("SELECT * FROM Names WHERE gender = 'male'");
-      db.select('SELECT * FROM Names WHERE probability < 0.99');
+      db.select("SELECT * FROM Names WHERE name LIKE '%a%'");
+  //db.select('SELECT * FROM Names WHERE probability < 0.99');
   //db.select('SELECT * FROM Names');
-  print('SELECT * FROM Names WHERE probability < 0.99');
+  print("SELECT * FROM Names WHERE name LIKE '%a%'");
 
   for (final Row row in resultSelect) {
     print(
